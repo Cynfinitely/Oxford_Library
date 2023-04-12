@@ -87,22 +87,26 @@ export const handleGoogleOnSuccess = createAsyncThunk(
   'users/googleLogin',
   async (response: CredentialResponse) => {
     console.log('response:', response)
-    if (response.credential) {
-      const res = await axios.post(
-        'TEST_URL',
-        {},
-        {
-          headers: {
-            id_token: response.credential
-          }
-        }
-      )
-      const token = res.data.token
-      const userEmail = res.data.userEmail
-      localStorage.setItem('token', token)
-      localStorage.setItem('userEmail', userEmail)
-      toast.success('Signed in with google account successfully')
-    }
+    const token: any = response.credential
+    localStorage.setItem('token', token)
+    toast.success('Signed in with google account successfully')
+    // After backend login
+    // if (response.credential) {
+    //   const res = await axios.post(
+    //     'TEST_URL',
+    //     {},
+    //     {
+    //       headers: {
+    //         id_token: response.credential
+    //       }
+    //     }
+    //   )
+    //   const token = res.data.token
+    //   const userEmail = res.data.userEmail
+    //   localStorage.setItem('token', token)
+    //   localStorage.setItem('userEmail', userEmail)
+    //   toast.success('Signed in with google account successfully')
+    // }
   }
 )
 
