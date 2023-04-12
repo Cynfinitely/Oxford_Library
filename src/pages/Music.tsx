@@ -1,0 +1,17 @@
+import React from 'react'
+import MusicCard from '../components/MusicCard/MusicCard'
+
+const Music = () => {
+  return (
+    <div className="flex justify-center text-center items-center w-full h-full">
+      {' '}
+      <div className="overflow-auto sm:-mx-6 lg:-mx-8">
+        <div className="flex flex-row  justify-around min-w-full py-2 sm:px-6 lg:px-8 items-center ">
+          <MusicCard />
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default Music
